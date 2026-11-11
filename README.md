@@ -6,6 +6,7 @@ Data analytics case study assessing credit card customer churn using SQL and Tab
 This end-to-end data analytics case study identifies the behavioral and demographic leading indicators of customer churn for a financial institution's credit card product. The goal of this project is to enable the marketing and retention teams to proactively identify at-risk accounts and deploy targeted, cost-effective retention campaigns.
 
 **Tools Used:** Google BigQuery (SQL), Tableau Public, Microsoft Excel  
+![Dashboard Overview](assets/dashboard-screenshot.png)
 **Dashboard:** [View the Interactive Tableau Dashboard Here](Insert_Your_Tableau_Link_Here)
 
 ---
