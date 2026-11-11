@@ -28,7 +28,7 @@ Data was imported into Google BigQuery for cleaning and processing. The cleaning
 * Checking for and filtering out duplicate rows using `DISTINCT`.
 * Verifying data types and ensuring zero null values existed in critical financial columns.
 
-*View the SQL cleaning query here: [Link to your 1_data_cleaning.sql file]*
+*View the SQL cleaning query here: [CHANGELOG.MD]*
 
 ---
 
