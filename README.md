@@ -7,7 +7,7 @@ This end-to-end data analytics case study identifies the behavioral and demograp
 
 **Tools Used:** Google BigQuery (SQL), Tableau Public, Microsoft Excel  
 ![Dashboard Overview](assets/dashboard-screenshot.png)
-**Dashboard:** [View the Interactive Tableau Dashboard Here](Insert_Your_Tableau_Link_Here)
+**Dashboard:** [View the Interactive Tableau Dashboard Here](https://public.tableau.com/views/DataChurnViz/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
 
 ---
 
