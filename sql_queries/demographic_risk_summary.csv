@@ -1,7 +1,0 @@
-Income_Category,total_customers_in_bracket,churned_customers,churn_rate_percentage
-$120K +,727,126,17.33
-Less than $40K,3561,612,17.19
-Unknown,1112,187,16.82
-$80K - $120K,1535,242,15.77
-$40K - $60K,1790,271,15.14
-$60K - $80K,1402,189,13.48
