@@ -1,0 +1,3 @@
+Attrition_Flag,total_customers,avg_transaction_amount,avg_transaction_count,avg_revolving_balance,avg_service_calls
+Existing Customer,8500,4654.66,69,1256.6,2.4
+Attrited Customer,1627,3095.03,45,672.82,3
