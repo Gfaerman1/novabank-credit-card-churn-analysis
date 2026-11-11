@@ -28,7 +28,9 @@ Data was imported into Google BigQuery for cleaning and processing. The cleaning
 * Checking for and filtering out duplicate rows using `DISTINCT`.
 * Verifying data types and ensuring zero null values existed in critical financial columns.
 
-*View the SQL cleaning query here: [CHANGELOG.md](CHANGELOG.md)*
+*View the SQL cleaning query here: [1_data_cleaning.sql](sql_queries/1_data_cleaning.sql)*
+
+*View the step-by-step cleaning documentation here: [CHANGELOG.MD](CHANGELOG.MD)*
 
 ---
 
@@ -45,8 +47,8 @@ I utilized SQL `CASE WHEN` statements and aggregations to compare the financial 
 ## Phase 5: Share
 I developed an executive dashboard in Tableau to visualize the financial risk and demographic concentration of the churning customer base.
 
-![NovaBank Tableau Dashboard](assets/your_dashboard_image_name.png)  
-*(Note to self: Replace the image path above with the actual path to your uploaded screenshot)*
+![Dashboard Overview](assets/dashboard-screenshot.png)
+**Dashboard:** [View the Interactive Tableau Dashboard Here](https://public.tableau.com/views/DataChurnViz/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
 
 ---
 
