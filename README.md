@@ -4,7 +4,7 @@
 This data analytics case study identifies the behavioral and demographic leading indicators associated with customer churn for a financial institution's credit card product. The goal of this project is to help marketing and retention teams identify at-risk customer segments and develop targeted retention strategies to protect recurring revenue.
 
 **Tools Used:** Google BigQuery (SQL), Tableau Public, Microsoft Excel  
-**Dashboard:** [View the Interactive Tableau Dashboard Here](https://public.tableau.com:9443/views/DataChurnViz/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
+**Dashboard:** [View the Interactive Tableau Dashboard Here] https://public.tableau.com:9443/views/DataChurnViz/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link
 
 ---
 
