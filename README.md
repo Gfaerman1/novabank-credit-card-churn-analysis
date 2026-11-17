@@ -45,7 +45,7 @@ I utilized SQL Common Table Expressions (CTEs), `CROSS JOIN` calculations, and `
 ## Phase 5: Share
 I developed an executive dashboard in Tableau to visualize the financial risk and demographic concentration of the churning customer base.
 
-![NovaBank Tableau Dashboard](assets/dashboard-ss_261117)  
+![NovaBank Tableau Dashboard](assets/dashboard-ss_261117.png)  
 
 ---
 
