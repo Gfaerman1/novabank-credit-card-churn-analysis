@@ -1,16 +1,15 @@
-# novabank-credit-card-churn-analysis
-Data analytics case study assessing credit card customer churn using SQL and Tableau.
-# Credit Card Customer Churn Analysis: NovaBank 💳
+# Behavioral and Demographic Indicators of Credit Card Attrition: NovaBank 💳
 
 ## Project Overview
-This end-to-end data analytics case study identifies the behavioral and demographic leading indicators of customer churn for a financial institution's credit card product. The goal of this project is to enable the marketing and retention teams to proactively identify at-risk accounts and deploy targeted, cost-effective retention campaigns.
+This data analytics case study identifies the behavioral and demographic leading indicators associated with customer churn for a financial institution's credit card product. The goal of this project is to help marketing and retention teams identify at-risk customer segments and develop targeted retention strategies to protect recurring revenue.
 
 **Tools Used:** Google BigQuery (SQL), Tableau Public, Microsoft Excel  
+**Dashboard:** [View the Interactive Tableau Dashboard Here](https://public.tableau.com:9443/views/DataChurnViz/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
 
 ---
 
 ## Phase 1: Ask
-**Business Task:** Analyze customer engagement metrics, credit utilization patterns, and demographic profiles to identify the primary behavioral leading indicators of credit card churn.
+**Business Task:** Analyze customer engagement metrics, credit utilization patterns, and demographic characteristics to identify the primary behavioral indicators associated with credit card customer churn.
 
 **Key Stakeholders:** VP of Consumer Credit, Marketing & Retention Teams.
 
@@ -20,39 +19,45 @@ This end-to-end data analytics case study identifies the behavioral and demograp
 **Data Source:** A public Kaggle dataset containing 10,127 records of customer financial behavior and demographic summaries.
 
 **Data Cleaning (SQL):**
-Data was imported into Google BigQuery for cleaning and processing. The cleaning process involved:
-* Removing irrelevant machine-learning output columns (`Naive_Bayes_Classifier...`).
-* Removing the `CLIENTNUM` identifier to maintain data privacy and anonymization.
-* Checking for and filtering out duplicate rows using `DISTINCT`.
-* Verifying data types and ensuring zero null values existed in critical financial columns.
+Data was imported into Google BigQuery for cleaning and validation. The processing phase included:
+* **Customer Uniqueness:** Validated by grouping `CLIENTNUM`. Found 0 duplicate customer IDs, confirming every row represents a distinct customer.
+* **Missing Data:** Verified 0 NULL values in critical financial columns. Retained "Unknown" values in demographic fields (Income, Education, Marital Status) to preserve 15% of the dataset's valid financial transaction data.
+* **Exclusions:** Removed `CLIENTNUM` to maintain anonymization and dropped external machine-learning output columns.
 
+*View the step-by-step cleaning documentation here: [CHANGELOG.md](CHANGELOG.md)*  
 *View the SQL cleaning query here: [1_data_cleaning.sql](sql_queries/1_data_cleaning.sql)*
-
-*View the step-by-step cleaning documentation here: [CHANGELOG.MD](CHANGELOG.MD)*
 
 ---
 
 ## Phase 4: Analyze
-I utilized SQL `CASE WHEN` statements and aggregations to compare the financial behavior of existing customers versus attrited (churned) customers. 
+I utilized SQL Common Table Expressions (CTEs), `CROSS JOIN` calculations, and `CASE WHEN` statements to compare the financial behavior of existing customers against attrited (churned) customers. 
 
 **Key Insights Discovered:**
 1. **The Demographic Barbell:** Churn is highest at the extreme ends of the income spectrum. The `$120K+` bracket churns at 17.3%, and the `<$40K` bracket churns at 17.2%. The middle-class brackets are highly stable.
-2. **Transaction Drop-Off:** Attrited customers showed a stark decrease in card usage before leaving, averaging only $3,095 in total transaction volume compared to $4,655 for retained customers.
-3. **Debt Reduction:** Churning customers actively pay down their revolving balances (dropping to an average of $672) prior to account closure, signaling premeditated exit behavior.
+2. **Transaction Drop-Off:** Attrited customers exhibited significantly lower average transaction activity than existing customers. On average, attrited customers spent 33.51% less in total volume and made 34.64% fewer transactions.
+3. **Revolving Balance Variance:** Attrited customers maintained revolving balances that were 46.46% lower than existing customers, suggesting marked differences in borrowing and credit utilization behavior among those who leave the bank.
+
+*View the baseline behavior CTE query here: [2_baseline_behavior.sql](sql_queries/2_baseline_behavior.sql)*  
+*View the demographic analysis query here: [3_demographic_churn.sql](sql_queries/3_demographic_churn.sql)*
 
 ---
 
 ## Phase 5: Share
 I developed an executive dashboard in Tableau to visualize the financial risk and demographic concentration of the churning customer base.
 
-![Dashboard Overview](assets/dashboard-screenshot.png)
-**Dashboard:** [View the Interactive Tableau Dashboard Here](https://public.tableau.com/views/DataChurnViz/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
+![NovaBank Tableau Dashboard](assets/)  
 
 ---
 
 ## Phase 6: Act (Business Recommendations)
-Based on the analysis, I recommend the following strategic actions to secure at-risk recurring revenue:
+Based on the observed behavioral differences, I propose the following retention experiments for the marketing team to test:
 
-1. **Implement an Early-Warning Transaction Trigger:** Set up an automated CRM alert. If a customer's rolling 3-month transaction average drops by more than 25% compared to the baseline ($4,654), automatically deploy a proactive retention email offering a statement credit before they initiate cancellation.
-2. **Deploy a Premium Retention Strategy ($120K+ Bracket):** To prevent the loss of significant swipe-fee revenue and high credit limits from the highest earners, offer premium retention perks such as airline lounge access or accelerated reward points, which carry a higher perceived value than a simple fee waiver.
-3. **Deploy a Cost-Sensitive Retention Strategy (<$40K Bracket):** Because this segment represents the highest volume of lost accounts, likely due to financial friction, offer a direct $50 statement credit or a temporary 0% APR period to secure the account for another year.
+1. **Implement an Activity Monitoring Strategy:** Because attrited customers show a 34% lower transaction count, the bank should implement a customer activity monitoring strategy that identifies sustained quarter-over-quarter transaction reductions or extended periods of inactivity.
+2. **Test Premium Retention Perks ($120K+ Bracket):** To prevent the loss of significant swipe-fee revenue from the highest earners, run a controlled A/B test offering premium retention perks—such as airline lounge access or accelerated reward points—against a standard fee waiver to see which secures the highest lifetime value.
+3. **Test Cost-Sensitive Retention Offers (<$40K Bracket):** Because this segment represents the highest volume of lost accounts, likely due to financial friction, test offering a direct $50 statement credit or a temporary 0% APR period to measure incremental customer retention.
+
+---
+
+## Data Limitations and Analytical Considerations
+* **Cross-Sectional vs. Longitudinal:** This dataset contains summarized customer-level metrics rather than chronological transaction records. The analysis identifies associations with historical attrition, but cannot establish whether a specific customer's activity steadily declined immediately before departure. 
+* **Causation:** The analysis highlights behavioral correlations, not proven causes of attrition. Proposed retention recommendations have not yet been validated through controlled marketing campaigns.
