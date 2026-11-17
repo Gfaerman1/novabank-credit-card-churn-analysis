@@ -24,7 +24,7 @@ Data was imported into Google BigQuery for cleaning and validation. The processi
 * **Missing Data:** Verified 0 NULL values in critical financial columns. Retained "Unknown" values in demographic fields (Income, Education, Marital Status) to preserve 15% of the dataset's valid financial transaction data.
 * **Exclusions:** Removed `CLIENTNUM` to maintain anonymization and dropped external machine-learning output columns.
 
-*View the step-by-step cleaning documentation here: [CHANGELOG.md](CHANGELOG.md)*  
+*View the step-by-step cleaning documentation here: [CHANGELOG.MD](CHANGELOG.MD)*  
 *View the SQL cleaning query here: [1_data_cleaning.sql](sql_queries/1_data_cleaning.sql)*
 
 ---
