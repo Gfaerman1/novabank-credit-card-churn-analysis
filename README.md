@@ -9,7 +9,7 @@ This data analytics case study identifies the behavioral and demographic charact
 ---
 
 ## Phase 1: Ask
-**Business Task:** Analyze customer engagement metrics, credit utilization patterns, and demographic characteristics to identify the primary behavioral indicators associated with credit card customer churn.
+**Business Task:** Analyze customer engagement metrics, revolving-balance patterns, and demographic characteristics to identify the primary behavioral indicators associated with credit card customer churn.
 
 **Key Stakeholders:** VP of Consumer Credit, Marketing & Retention Teams.
 
@@ -35,7 +35,7 @@ I utilized SQL Common Table Expressions (CTEs), `CROSS JOIN` calculations, and `
 **Key Insights Discovered:**
 1. **The Demographic Barbell:** Churn is highest at the extreme ends of the income spectrum. The `$120K+` bracket churns at 17.3%, and the `<$40K` bracket churns at 17.2%. The middle-income brackets exhibited comparatively lower churn rates.
 2. **Transaction Activity Differences:** Attrited customers exhibited significantly lower average transaction activity than existing customers. On average, attrited customers spent 33.51% less in total volume and made 34.64% fewer transactions.
-3. **Revolving Balance Variance:** Attrited customers maintained revolving balances that were 46.46% lower than existing customers, suggesting marked differences in borrowing and credit utilization behavior among those who leave the bank.
+3. **Revolving Balance Variance:** Attrited customers maintained revolving balances that were 46.46% lower than existing customers, indicating a difference in the revolving balances maintained by the two groups.
 
 *View the baseline behavior CTE query here: [2_baseline_behavior.sql](sql_queries/2_baseline_behavior.sql)*  
 *View the demographic analysis query here: [3_demographic_churn.sql](sql_queries/3_demographic_churn.sql)*
