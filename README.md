@@ -18,13 +18,14 @@ This data analytics case study identifies the behavioral and demographic charact
 ## Phase 2 & 3: Prepare and Process
 **Data Source:** A public Kaggle dataset containing 10,127 records of customer financial behavior and demographic summaries.
 
-**Data Cleaning (SQL):**
-Data was imported into Google BigQuery for cleaning and validation. The processing phase included:
-* **Customer Uniqueness:** Validated by grouping `CLIENTNUM`. Found 0 duplicate customer IDs, confirming every row represents a distinct customer.
-* **Missing Data:** Verified 0 NULL values in critical financial columns. Retained "Unknown" values in demographic fields (Income, Education, Marital Status) to preserve 15% of the dataset's valid financial transaction data.
-* **Exclusions:** Removed `CLIENTNUM` to maintain anonymization and dropped external machine-learning output columns.
-
-*View the step-by-step cleaning documentation here: [CHANGELOG.MD](CHANGELOG.MD)*  
+**Data Cleaning and Validation(SQL):**
+The dataset was imported into Google BigQuery, where customer records were validated and prepared for analysis. The preparation process phase included:
+* **Customer Uniqueness:** Used SQL aggregation to validate CLIENTNUM in the original dataset. Confirmed that each customer ID appeared once, with no duplicate or NULL customer IDs.
+* **Missing Data:** Checked for NULL values in critical financial columns. Retained "Unknown" values in demographic fields to preserve customer records with valid financial information.
+* **Exclusions:** Removed CLIENTNUM from the analytical working table to exclude the customer identifier, along with two external machine-learning output columns that were not relevant to the descriptive analysis.
+*  **Record Preservation:** Created the cleaned working table without removing distinct customer records, preserving the original customer population.
+*View the step-by-step cleaning documentation here: [CHANGELOG.MD](CHANGELOG.MD)*
+*View the customer ID validation query here: [0_data_validation.sql](sql_queries/0_data_validation.sql)
 *View the SQL cleaning query here: [1_data_cleaning.sql](sql_queries/1_data_cleaning.sql)*
 
 ---
