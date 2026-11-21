@@ -24,8 +24,11 @@ The dataset was imported into Google BigQuery, where customer records were valid
 * **Missing Data:** Checked for NULL values in critical financial columns. Retained "Unknown" values in demographic fields to preserve customer records with valid financial information.
 * **Exclusions:** Removed CLIENTNUM from the analytical working table to exclude the customer identifier, along with two external machine-learning output columns that were not relevant to the descriptive analysis.
 *  **Record Preservation:** Created the cleaned working table without removing distinct customer records, preserving the original customer population.
+*  
 *View the step-by-step cleaning documentation here: [CHANGELOG.MD](CHANGELOG.MD)*
+
 *View the customer ID validation query here: [0_data_validation.sql](sql_queries/0_data_validation.sql)
+
 *View the SQL cleaning query here: [1_data_cleaning.sql](sql_queries/1_data_cleaning.sql)*
 
 ---
