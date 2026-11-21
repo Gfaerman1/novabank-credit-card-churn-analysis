@@ -25,9 +25,9 @@ The dataset was imported into Google BigQuery, where customer records were valid
 * **Exclusions:** Removed CLIENTNUM from the analytical working table to exclude the customer identifier, along with two external machine-learning output columns that were not relevant to the descriptive analysis.
 *  **Record Preservation:** Created the cleaned working table without removing distinct customer records, preserving the original customer population.
 
-*View the step-by-step cleaning documentation here: [CHANGELOG.MD](CHANGELOG.MD)*
-*View the customer ID validation query here: [0_data_validation.sql](sql_queries/0_data_validation.sql)*
-*View the SQL cleaning query here: [1_data_cleaning.sql](sql_queries/1_data_cleaning.sql)*
+*View the step-by-step cleaning documentation here: [CHANGELOG.MD](CHANGELOG.MD)*\
+*View the customer ID validation query here: [0_data_validation.sql](sql_queries/0_data_validation.sql)*\
+*View the SQL cleaning query here: [1_data_cleaning.sql](sql_queries/1_data_cleaning.sql)*\
 
 ---
 
@@ -39,7 +39,7 @@ I utilized SQL Common Table Expressions (CTEs), `CROSS JOIN` calculations, and `
 2. **Transaction Activity Differences:** Attrited customers exhibited significantly lower average transaction activity than existing customers. On average, attrited customers spent 33.51% less in total volume and made 34.64% fewer transactions.
 3. **Revolving Balance Variance:** Attrited customers maintained revolving balances that were 46.46% lower than existing customers, indicating a difference in the revolving balances maintained by the two groups.
 
-*View the baseline behavior CTE query here: [2_baseline_behavior.sql](sql_queries/2_baseline_behavior.sql)*  
+*View the baseline behavior CTE query here: [2_baseline_behavior.sql](sql_queries/2_baseline_behavior.sql)*\
 *View the demographic analysis query here: [3_demographic_churn.sql](sql_queries/3_demographic_churn.sql)*
 
 ---
