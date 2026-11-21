@@ -1,8 +1,7 @@
 # Behavioral and Demographic Indicators of Credit Card Attrition: NovaBank 💳
 
 ## Project Overview
-This data analytics case study identifies the behavioral and demographic characteristics associated with historical customer churn for a financial institution's credit card product. The goal of this project is to help marketing and retention teams identify at-risk customer segments and develop targeted retention strategies to protect recurring revenue.
-
+This data analytics case study identifies the behavioral and demographic characteristics associated with historical customer churn for a financial institution's credit card product. The goal of this project is to help marketing and retention teams understand customer segments associated with historical attrition and develop targeted retention strategies to improve customer retention and protect customer value.
 **Tools Used:** Google BigQuery (SQL), Tableau Public, Microsoft Excel  
 **Dashboard:** [View the Interactive Tableau Dashboard Here](https://public.tableau.com/app/profile/gregory.faerman/viz/DataChurnViz/Dashboard1#1)
 
@@ -19,7 +18,7 @@ This data analytics case study identifies the behavioral and demographic charact
 **Data Source:** A public Kaggle dataset containing 10,127 records of customer financial behavior and demographic summaries.
 
 **Data Cleaning and Validation(SQL):**
-The dataset was imported into Google BigQuery, where customer records were validated and prepared for analysis. The preparation process phase included:
+The dataset was imported into Google BigQuery, where customer records were validated and prepared for analysis. The preparation process included:
 * **Customer Uniqueness:** Used SQL aggregation to validate CLIENTNUM in the original dataset. Confirmed that each customer ID appeared once, with no duplicate or NULL customer IDs.
 * **Missing Data:** Checked for NULL values in critical financial columns. Retained "Unknown" values in demographic fields to preserve customer records with valid financial information.
 * **Exclusions:** Removed CLIENTNUM from the analytical working table to exclude the customer identifier, along with two external machine-learning output columns that were not relevant to the descriptive analysis.
@@ -36,7 +35,7 @@ I utilized SQL Common Table Expressions (CTEs), `CROSS JOIN` calculations, and `
 
 **Key Insights Discovered:**
 1. **The Demographic Barbell:** Churn is highest at the extreme ends of the income spectrum. The `$120K+` bracket churns at 17.3%, and the `<$40K` bracket churns at 17.2%. The middle-income brackets exhibited comparatively lower churn rates.
-2. **Transaction Activity Differences:** Attrited customers exhibited significantly lower average transaction activity than existing customers. On average, attrited customers spent 33.51% less in total volume and made 34.64% fewer transactions.
+2. **Transaction Activity Differences:** Attrited customers exhibited lower average transaction activity than existing customers. On average, attrited customers spent 33.51% less in total volume and made 34.57% fewer transactions.
 3. **Revolving Balance Variance:** Attrited customers maintained revolving balances that were 46.46% lower than existing customers, indicating a difference in the revolving balances maintained by the two groups.
 
 *View the baseline behavior CTE query here: [2_baseline_behavior.sql](sql_queries/2_baseline_behavior.sql)*\
@@ -54,7 +53,7 @@ I developed an executive dashboard in Tableau to visualize the financial risk an
 ## Phase 6: Act (Business Recommendations)
 Based on the observed behavioral differences, I propose the following retention experiments for the marketing team to test:
 
-1. **Implement an Activity Monitoring Strategy:** Because attrited customers show a 34% lower transaction count, the bank should implement a customer activity monitoring strategy that identifies sustained quarter-over-quarter transaction reductions or extended periods of inactivity.
+1. **Implement an Activity Monitoring Strategy:** Because attrited customers exhibited approximately 34% fewer transactions, the bank should consider implementing a customer activity monitoring strategy using ongoing, time-stamped transaction data. This would allow the bank to identify sustained quarter-over-quarter transaction reductions or extended periods of inactivity and investigate whether these patterns can serve as early indicators of attrition.
 2. **Test Premium Retention Perks ($120K+ Bracket):** The $120K+ income segment exhibited the highest observed churn rate (17.3%), although the difference from the less-than-$40K segment (17.2%) was marginal. Test targeted premium retention perks—such as airline lounge access or accelerated reward points—against a control group to evaluate their effectiveness in improving customer retention and preserving customer value.
 3. **Test Cost-Sensitive Retention Offers (<$40K Bracket):** This segment represents the largest number of attrited customers in the dataset. Test targeted offers, such as a $50 statement credit or a temporary 0% APR period, to evaluate whether financial incentives improve customer retention and generate a positive return on investment.
 
