@@ -27,7 +27,7 @@ The dataset was imported into Google BigQuery, where customer records were valid
 
 *View the step-by-step cleaning documentation here: [CHANGELOG.MD](CHANGELOG.MD)*\
 *View the customer ID validation query here: [0_data_validation.sql](sql_queries/0_data_validation.sql)*\
-*View the SQL cleaning query here: [1_data_cleaning.sql](sql_queries/1_data_cleaning.sql)*\
+*View the SQL cleaning query here: [1_data_cleaning.sql](sql_queries/1_data_cleaning.sql)*
 
 ---
 
